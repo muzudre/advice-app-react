@@ -1,0 +1,72 @@
+#root,
+html body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1663576381502-2ecb1b554db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=802&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card {
+  background-color: whitesmoke;
+  width: 40%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  padding: 2%;
+  box-shadow: 5px 5px 5px 5px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  height: 580px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 17px 48px;
+  color: #fff;
+  background-color: #1ed760;
+  height: 48px;
+}
+
+.button :hover {
+  transform: scale(1.04);
+  background-color: #21e065;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 80%;
+    height: 13%;
+  }
+}
