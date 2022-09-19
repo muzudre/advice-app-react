@@ -4,7 +4,8 @@ import './App.css'
 
 class App extends React.Component {
     state = {
-        advice: ''
+        advice: '',
+        loading: true
     }
 
     componentDidMount() {
@@ -15,20 +16,29 @@ class App extends React.Component {
         axios.get('https://api.adviceslip.com/advice')
             .then(response => {
                 const { advice } = response.data.slip
-                this.setState({ advice })
+                this.setState({ advice, loading: false })
             })
             .catch(error => {
                 console.log('Error: ', error)
             })
     }
 
+    handleNewAdvice = () => {
+        this.setState({ loading: true })
+        this.fetchAdvice()
+    }
+
     render() {
-        const { advice } = this.state
+        const { advice, loading } = this.state
         return (
             <div className='app'>
                 <div className='card'>
-                    <h1 className='heading'>{advice}</h1>
-                    <button className='button' onClick={() => this.fetchAdvice()}>Give me advice!</button>
+                    {loading ? (
+                        <div className="lds-ripple"><div></div><div></div></div>
+                    ) : (
+                        <h1 className='heading'>{advice}</h1>
+                    )}
+                    <button className='button' onClick={() => this.handleNewAdvice()}>Give me advice!</button>
                 </div>
 
             </div>
